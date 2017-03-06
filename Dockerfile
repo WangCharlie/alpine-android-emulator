@@ -15,13 +15,12 @@ setxkbmap sudo util-linux dbus wireshark ttf-freefont xauth supervisor busybox-s
 && apk add /tmp/apk/ossp-uuid-1.6.2-r0.apk \
 && apk add /tmp/apk/ossp-uuid-dev-1.6.2-r0.apk \
 && apk add /tmp/apk/x11vnc-0.9.13-r0.apk \
+&& apk add --allow-untrusted /tmp/glibc-2.21-r2.apk \
 && rm -rf /tmp/* /var/cache/apk/*
 
 # Install cURL
-RUN apk --update add curl ca-certificates tar && \
-    curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk && \
-    apk add --allow-untrusted /tmp/glibc-2.21-r2.apk
-    
+RUN apk --update add curl ca-certificates tar 
+     
 # Download and unarchive Java
 RUN mkdir /opt && curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie"\
   http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz \
