@@ -15,7 +15,7 @@ setxkbmap sudo util-linux dbus wireshark ttf-freefont xauth supervisor busybox-s
 && apk add /tmp/apk/ossp-uuid-1.6.2-r0.apk \
 && apk add /tmp/apk/ossp-uuid-dev-1.6.2-r0.apk \
 && apk add /tmp/apk/x11vnc-0.9.13-r0.apk \
-&& apk add --allow-untrusted /tmp/glibc-2.21-r2.apk \
+&& apk add --allow-untrusted /tmp/apk/glibc-2.21-r2.apk \
 && rm -rf /tmp/* /var/cache/apk/*
 
 # Install cURL
